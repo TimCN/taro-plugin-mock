@@ -7,6 +7,7 @@ export default (ctx, pluginOpts) => {
       mocks: joi.object().pattern(
         joi.string(), joi.object()
       ),
+      middlewares: joi.array(),
       port: joi.number(),
       host: joi.string()
     })
@@ -19,13 +20,15 @@ export default (ctx, pluginOpts) => {
       const {
         mocks,
         port,
-        host
+        host,
+        middlewares
       } = pluginOpts
       const helper = ctx.helper
       const server = new Server({
         port,
         host,
         middlewares: [
+          ...middlewares,
           createMockMiddleware({
             appPath,
             mocks,

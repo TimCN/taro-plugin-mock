@@ -1,5 +1,5 @@
 {
-  "name": "@tarojs/plugin-mock",
+  "name": "tim-tarojs-plugin-mock",
   "version": "0.0.7",
   "description": "Taro 数据 Mock 插件",
   "main": "index.js",
